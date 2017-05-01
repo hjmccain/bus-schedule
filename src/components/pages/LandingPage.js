@@ -16,7 +16,7 @@ class LandingPage extends React.Component {
     let image;
     const elem = document.getElementById("header-container");
     const position = elem.getBoundingClientRect();
-    image = position.top <= -94.25 ? 'background-img fixed' : image = 'background-img';
+    image = position.top <= -109.25 ? 'background-img fixed' : image = 'background-img';
     console.log(position);
     this.setState({ imageClass: image })
   }

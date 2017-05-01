@@ -11,14 +11,14 @@ const SingleResult = (props) => {
         <div className="depart">
           <p>
             <span>Depart</span>
-            <span>{'12:30pm'}</span>
+            <span className="time">{'12:30pm'}</span>
             <span>{'Chicago Transportation Center'}</span>
           </p>
         </div>
         <div className="arrive">
           <p>
             <span>Arrive</span>
-            <span>{'11:10pm'}</span>
+            <span className="time">{'11:10pm'}</span>
             <span>{'Métro - Centre Ville'}</span>
           </p>
         </div>

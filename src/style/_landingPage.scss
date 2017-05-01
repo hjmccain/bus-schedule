@@ -28,7 +28,7 @@
 }
 
 .background-img {
-  @include parallax(-.2);
+  @include parallax(-.4);
   background-image: url('../../public/cropped-background.png');
   height: 1000px;
   background-attachment: fixed;
@@ -39,5 +39,5 @@
 
 .fixed {
   background-attachment: scroll;
-  margin-top: -141px;
+  margin-top: -175px;
 }
