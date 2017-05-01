@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FullPage from './components/FullPage';
+import FullPage from './components/pages/FullPage';
 import { Provider } from 'react-redux';
 import { store } from './store';
 

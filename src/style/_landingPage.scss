@@ -1,0 +1,82 @@
+@import 'variables';
+@import 'parallax';
+
+$parallax-perspective: 1 !default;
+$parallax-element: "body" !default;
+$parallax-ios: true !default;
+
+@mixin parallax-init(
+  $perspective : $parallax-perspective,
+  $element: $parallax-element,
+  $parallax-ios: $parallax-ios
+  ) {
+  @if $element == "body" {
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+  #{$element} {
+    overflow: auto;
+    perspective: $perspective * 1px;
+    transform-style: preserve-3d;
+    @if $parallax-ios == false {
+      -webkit-overflow-scrolling: touch;
+    }
+    &, * {
+      transform-style: preserve-3d;
+    }
+  }
+}
+
+@mixin parallax(
+  $distance: 0,
+  $perspective: $parallax-perspective
+  ) {
+  transform:
+    translateZ($distance * $perspective * 1px)
+    scale(1)
+  ;
+  z-index: $distance * 1000;
+}
+
+.branded-header {
+  text-shadow: 1px 1px 2px $main;
+  line-height: .8;
+  color: $main;
+  font-size: 8em;
+  font-family: $headline;
+  position: relative;
+  z-index: 200;
+  .x {
+    text-shadow: 1px 1px 2px $black;
+    color: $black;
+    padding-left: 10px;
+  }
+}
+
+.img-container {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  margin-top: -102px;
+}
+
+.background-img {
+  @include parallax(-2);
+  background-image: url('../../public/cropped-background.png');
+  height: 1000px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  // max-width: 100vw;
+}
+
+// .fixed {
+//   background-attachment: scroll;
+//   margin-top: -197px;
+// }
