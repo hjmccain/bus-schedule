@@ -1,15 +1,16 @@
-export const getData = () => (dispatch) => {
+export const getData = (origin, destination, date, index) => (dispatch) => {
 
-  const getData = (index) => {
-    return fetch(`/itinerary/dr5reg/f25dvk/2017-05-30/adult=1&currency=CAD`)
+  const getData = (origin, destination, date, index = 0) => {
+    return fetch(`/itineraries/${origin}/${destination}/${date}/${index}`)
     .then(res => {
       if (!res.ok) { throw new Error(res.statusText) }
       return res.json();
     }).then(res => {
       console.log(res);
+      const { complete, departures } = res;
       // dispatch(getDataSuccess(res, currentEnd))
-      if (res.complete === false) {
-        getData();
+      if (complete === false) {
+        getData('dr5reg', 'f25dvk', '2017-05-30', departures.indexOf(departures)[-1]);
       }
     }).catch(err => {
       console.error(err);
@@ -17,5 +18,5 @@ export const getData = () => (dispatch) => {
     });
   }
 
-  getData();
+  getData('dr5reg', 'f25dvk', '2017-05-30');
 }
