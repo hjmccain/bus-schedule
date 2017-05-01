@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getData } from '../state/actions';
+import '../style/index.css';
 
 class DisplayPage extends React.Component {
   componentWillMount() {
@@ -8,8 +9,10 @@ class DisplayPage extends React.Component {
   }
 
   render() {
-    return <div>hola mundito</div>
+    return <div><h1>hola mundito</h1></div>
   }
 }
 
-export default connect(null, { getData })(DisplayPage);
+const mapStateToProps = state => ({ data: state.data });
+
+export default connect(mapStateToProps, { getData })(DisplayPage);
