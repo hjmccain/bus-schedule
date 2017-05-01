@@ -1,12 +1,17 @@
 @import 'normalize';
 @import 'landingPage';
 @import 'searchPage';
+@import 'search';
+@import 'results';
 
 body {
   margin: 0px;
-  background-color: #EAF4F7;
 }
 
 #root {
   position: relative;
+}
+
+.search-page, .branded-header {
+  margin-left: 50px;
 }

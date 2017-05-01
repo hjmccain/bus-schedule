@@ -25,7 +25,7 @@ class LandingPage extends React.Component {
     return (
       <div id="header-container">
         <h1 className="branded-header">
-          busbud
+          <span className="busbud">busbud</span>
           <span className="x">x</span>
           <br />
           osheaga

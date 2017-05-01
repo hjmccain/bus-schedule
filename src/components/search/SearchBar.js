@@ -1,13 +1,12 @@
 import React from 'react';
 
-class SearchBar extends React.Component {
-  render() {
-    return (
-      <div>
-        <h3>Lil searchy foobar</h3>
-      </div>
-    )
-  }
+const SearchBar = (props) => {
+  return (
+    <div>
+      <p>{props.label}</p>
+      <input placeholder={props.text}/>
+    </div>
+  )
 }
 
 export default SearchBar;

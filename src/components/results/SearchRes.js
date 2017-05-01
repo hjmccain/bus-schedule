@@ -1,11 +1,11 @@
 import React from 'react';
-import ResultsTable from './ResultsTable';
+import Results from './Results';
 
 class SearchRes extends React.Component {
   render() {
     return (
       <div>
-        <ResultsTable />
+        <Results />
       </div>
     )
   }

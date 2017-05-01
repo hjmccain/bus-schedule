@@ -4,10 +4,14 @@ import SearchBar from './SearchBar';
 class SearchNav extends React.Component {
   render() {
     return (
-      <div>
-        <h2>"let's go to Montréal bishes!!"</h2>
-        <SearchBar />
-        <SearchBar />
+      <div className="search-nav">
+        <h2>you’re going to montréal!</h2>
+        <SearchBar
+          label="from"
+          text="Chicago" />
+        <SearchBar
+          label="departing"
+          text="July 29" />
       </div>
     )
   }

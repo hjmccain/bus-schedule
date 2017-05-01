@@ -1,20 +1,33 @@
 import React from 'react';
 
-const SingleArticle = (props) => {
+const SingleResult = (props) => {
   return (
-    <div className="">
-      <div className="break">
-        <p className="author">price</p>
-        <p className="wordcount">depart</p>
-        <p className="submitted">arrive</p>
-        <p className="submitted">location</p>
+    <div className="single-result">
+      <div className="result-element price"><p>{'$100'}</p></div>
+      <div className="result-element itinerary">
+        <div className="carrier">
+          <p>{'Megabus'}</p>
+        </div>
+        <div className="depart">
+          <p>
+            <span>Depart</span>
+            <span>{'12:30pm'}</span>
+            <span>{'Chicago Transportation Center'}</span>
+          </p>
+        </div>
+        <div className="arrive">
+          <p>
+            <span>Arrive</span>
+            <span>{'11:10pm'}</span>
+            <span>{'Métro - Centre Ville'}</span>
+          </p>
+        </div>
       </div>
-      <div className="article-element"><p>PRICE!</p></div>
-      <div className="article-element"><p>DEPART!</p></div>
-      <div className="article-element"><p>ARRIVE!</p></div>
-      <div className="article-element"><p>LOCATION!</p></div>
+      <div className="result-element more-info">
+        <button>details</button>
+      </div>
     </div>
   )
 }
 
-export default SingleArticle;
+export default SingleResult;

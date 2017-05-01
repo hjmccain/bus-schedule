@@ -1,48 +1,6 @@
 @import 'variables';
 @import 'parallax';
 
-$parallax-perspective: 1 !default;
-$parallax-element: "body" !default;
-$parallax-ios: true !default;
-
-@mixin parallax-init(
-  $perspective : $parallax-perspective,
-  $element: $parallax-element,
-  $parallax-ios: $parallax-ios
-  ) {
-  @if $element == "body" {
-    html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-  }
-  #{$element} {
-    overflow: auto;
-    perspective: $perspective * 1px;
-    transform-style: preserve-3d;
-    @if $parallax-ios == false {
-      -webkit-overflow-scrolling: touch;
-    }
-    &, * {
-      transform-style: preserve-3d;
-    }
-  }
-}
-
-@mixin parallax(
-  $distance: 0,
-  $perspective: $parallax-perspective
-  ) {
-  transform:
-    translateZ($distance * $perspective * 1px)
-    scale(abs($distance - 1))
-  ;
-  z-index: $distance * 1000;
-}
-
 .branded-header {
   text-shadow: 1px 1px 2px $main;
   line-height: .8;
@@ -51,6 +9,10 @@ $parallax-ios: true !default;
   font-family: $headline;
   position: relative;
   z-index: 200;
+  // .busbud {
+  //   color: $busbud;
+  //   text-shadow: 1px 1px 2px $busbud;
+  // }
   .x {
     text-shadow: 1px 1px 2px $black;
     color: $black;
@@ -60,7 +22,7 @@ $parallax-ios: true !default;
 
 .img-container {
   width: 100%;
-  height: 490px;
+  height: 485px;
   overflow: hidden;
   margin-top: -102px;
 }
@@ -73,7 +35,6 @@ $parallax-ios: true !default;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  // max-width: 100vw;
 }
 
 .fixed {

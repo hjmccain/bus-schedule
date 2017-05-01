@@ -1,0 +1,38 @@
+.results-body {
+  box-sizing: border-box;
+  width: 790px;
+  padding-top: 20px;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.single-result {
+  border: 1px solid $busbud;
+  display: flex;
+  width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  font-family: $sans-serif;
+
+  .result-element {
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .price {
+    width: 150px;
+    text-align: center;
+  }
+
+  .itinerary {
+    width: 500px;
+    span {
+      margin: 10px 20px 10px 0px;
+    }
+  }
+
+  .more-info {
+    width: 100px;
+  }
+}
