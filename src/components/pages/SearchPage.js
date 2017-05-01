@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchNav from './search/SearchNav';
-import SearchRes from './search/SearchRes';
+import SearchRes from './results/SearchRes';
 
 class SearchPage extends React.Component {
   render() {
