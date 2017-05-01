@@ -5,10 +5,10 @@ const app = express();
 
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-app.get('/itineraries/:origin/:destination/:date/:index', (req, res) => {
-  const { polling, origin, destination, date, index } = req.params;
-  const params = 'adult=1&currency=CAD';
-  const url = `https://napi.busbud.com/x-departures/${origin}/${destination}/${date}/?index=${index}`;
+app.get('/itineraries/:origin/:destination/:date/:params/:index', (req, res) => {
+  const { polling, origin, destination, date, params } = req.params;
+  let index = req.params.index ? `&index=${req.params.index}` : ''
+  const url = `https://napi.busbud.com/x-departures/${origin}/${destination}/${date}/?${params}${index}`;
 
   return fetch(url, {
     method: 'get',
