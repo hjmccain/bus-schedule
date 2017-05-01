@@ -4,10 +4,7 @@ import background from '../../../public/cropped-background.png';
 class LandingPage extends React.Component {
   constructor() {
     super();
-    this.state = {
-      elem: ''
-    }
-    this.state = { headerClass: 'branded-header', imageClass: 'background-img' }
+    this.state = { imageClass: 'background-img' }
     this.findPosition = this.findPosition.bind(this)
   }
 
@@ -16,23 +13,18 @@ class LandingPage extends React.Component {
   }
 
   findPosition() {
-    let header, image;
+    let image;
     const elem = document.getElementById("header-container");
     const position = elem.getBoundingClientRect();
-    if (position.top <= -17) {
-      // header = 'branded-header fixed'
-      image = 'background-img fixed'
-    } else {
-      // header = 'branded-header'
-      image = 'background-img'
-    }
+    image = position.top <= -94.25 ? 'background-img fixed' : image = 'background-img';
+    console.log(position);
     this.setState({ imageClass: image })
   }
 
   render() {
     return (
       <div id="header-container">
-        <h1 className={this.state.headerClass}>
+        <h1 className="branded-header">
           busbud
           <span className="x">x</span>
           <br />
