@@ -13,6 +13,7 @@ const state = (state = {}, action) => {
       const operator = operators.filter(operator => operator.id === departure.operator_id);
       const priceEnd = total.toString().length;
       const cents = total.toString().slice(priceEnd - 2, priceEnd);
+      const rounded = cents >= 50 ? 1 : 0;
       const dollars = total.toString().slice(0, priceEnd - 2);
       locationsArray.push({
         departureName: departureLocation[0].name,
@@ -24,7 +25,9 @@ const state = (state = {}, action) => {
         arrivalDate: moment(departures.arrival_time).format('MMMM D YYYY'),
         arrivalTime: moment(departures.arrival_time).format('H:m a'),
         carrier: operator[0].name,
-        price: `${dollars}.${cents}`
+        price: `${dollars}.${cents}`,
+        showActualPrice: (cents !== '00'),
+        roundedPrice: `${(parseInt(dollars) + parseInt(rounded)).toString()}`
       })
     });
     return state = Object.assign({}, state, {

@@ -4,7 +4,10 @@ const SingleResult = (props) => {
   console.log('single result', props)
   return (
     <div className="single-result">
-      <div className="result-element price"><p>{props.price}</p></div>
+      <div className="result-element price">
+        <p>{props.roundedPrice}</p>
+        <p className="actual-price">{props.price}</p>
+      </div>
       <div className="result-element itinerary">
         <div className="carrier">
           <p>{props.carrier}</p>

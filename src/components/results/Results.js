@@ -13,7 +13,8 @@ const Results = (props) => {
           return <SingleResult
             key={uuidV4()}
             className="result-line"
-            price={`$${object.price}`}
+            price={object.showActualPrice ? `$${object.price}` : null}
+            roundedPrice={`$${object.roundedPrice}`}
             carrier={object.carrier}
             depart={{city: 'New York City', time: object.departureTime, location: object.departureName}}
             arrive={{city: 'Montréal', time: object.arrivalTime, location: object.arrivalName}}
