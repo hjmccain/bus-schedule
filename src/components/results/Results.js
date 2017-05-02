@@ -3,12 +3,13 @@ import SingleResult from './SingleResult';
 import uuidV4 from 'uuid/v4';
 
 const Results = (props) => {
-  console.log(props);
   if (props.results) {
+    if (props.results === 'No results') {
+      return <div className="no-results">Whoops! Sorry. We couldn't find any results for those dates.</div>
+    }
     return (
       <div className="results-body">
         {props.results.map(object => {
-          console.log(object.carrier);
           return <SingleResult
             key={uuidV4()}
             className="result-line"
@@ -21,7 +22,7 @@ const Results = (props) => {
       </div>
     )
   } else {
-    return <div>No results</div>
+    return <div></div>
   }
 }
 

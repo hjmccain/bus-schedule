@@ -4,8 +4,8 @@ import moment from 'moment';
 const state = (state = {}, action) => {
   switch (action.type) {
   case actions.GET_DATA_SUCCESS:
-    let locationsArray = [];
     const { departures, locations, operators } = action.data;
+    let locationsArray = departures.length > 0 ? [] : 'No results';
     departures.forEach(departure => {
       const { total } = departure.prices;
       const arrivalLocation = locations.filter(location => location.id === departure.destination_location_id);
@@ -30,6 +30,11 @@ const state = (state = {}, action) => {
     return state = Object.assign({}, state, {
       data: locationsArray,
       getDataError: false
+    });
+  case actions.GET_DATA_ERROR:
+    return state = Object.assign({}, state, {
+      data: null,
+      getDataError: true
     });
   default:
     return state;

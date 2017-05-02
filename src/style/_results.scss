@@ -6,6 +6,19 @@
   background-color: white;
 }
 
+.no-results {
+  box-sizing: border-box;
+  margin-top: 40px;
+  text-align: center;
+  width: 790px;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: white;
+  font-family: $sans-serif;
+  padding: 10px 10px 10px 10px;
+  background-color: $busbud;
+}
+
 .single-result {
   border: 1px solid $lightgray;
   display: flex;
