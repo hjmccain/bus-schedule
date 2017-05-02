@@ -1,6 +1,10 @@
 @import 'variables';
 @import 'parallax';
 
+#header-container {
+  height: 100vh;
+}
+
 .branded-header {
   text-shadow: 1px 1px 2px $main;
   line-height: .8;
@@ -9,10 +13,6 @@
   font-family: $headline;
   position: relative;
   z-index: 200;
-  // .busbud {
-  //   color: $busbud;
-  //   text-shadow: 1px 1px 2px $busbud;
-  // }
   .x {
     text-shadow: 1px 1px 2px $black;
     color: $black;
@@ -28,7 +28,7 @@
 }
 
 .background-img {
-  @include parallax(-.4);
+  @include parallax(-.2);
   background-image: url('../../public/cropped-background.png');
   height: 1000px;
   background-attachment: fixed;
@@ -39,5 +39,5 @@
 
 .fixed {
   background-attachment: scroll;
-  margin-top: -175px;
+  margin-top: -148px;
 }
