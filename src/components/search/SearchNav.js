@@ -6,12 +6,17 @@ class SearchNav extends React.Component {
     return (
       <div className="search-nav">
         <h2>you’re going to montréal!</h2>
-        <SearchBar
-          label="from"
-          text="Chicago" />
-        <SearchBar
-          label="departing"
-          text="July 29" />
+        <form>
+          <SearchBar
+            label="from"
+            text="Chicago" />
+          <SearchBar
+            label="departing"
+            text="July 29" />
+          <div>
+            <button type="submit">Find my ticket!</button>
+          </div>
+        </form>
       </div>
     )
   }

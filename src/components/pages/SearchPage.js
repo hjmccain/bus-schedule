@@ -1,13 +1,13 @@
 import React from 'react';
 import SearchNav from '../search/SearchNav';
-import SearchRes from '../results/SearchRes';
+import Results from '../results/Results';
 
 class SearchPage extends React.Component {
   render() {
     return (
       <div className="search-page">
         <SearchNav />
-        <SearchRes />
+        <Results />
       </div>
     )
   }
