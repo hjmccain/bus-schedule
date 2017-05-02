@@ -33,10 +33,10 @@ class SearchNav extends React.Component {
         <h2>you’re going to montréal!</h2>
         <form>
           <SearchBar
+            content="New York City"
             collectInput={this.collectInput.bind(this)}
             toggleVisibility={this.toggleVisibility.bind(this)}
-            label="from"
-            text="Chicago" />
+            label="from" />
           <SearchBar
             content={this.state.displayDate.toString()}
             toggleVisibility={this.toggleVisibility.bind(this)}

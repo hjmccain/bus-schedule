@@ -6,15 +6,21 @@ import { getData } from '../../state/actions';
 
 const SearchPage = (props) => {
   const dateAndLocation = (object) => {
-    props.getData();
+    props.getData(object.isoDate);
   }
 
   return (
     <div className="search-page">
       <SearchNav dateAndLocation={dateAndLocation} />
-      <Results />
+      <Results
+        results={props.results ? props.results : null}
+        />
     </div>
   )
 }
 
-export default connect(null, { getData })(SearchPage);
+const mapStateToProps = (state) => ({
+  results: state.data
+});
+
+export default connect(mapStateToProps, { getData })(SearchPage);
