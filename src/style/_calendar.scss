@@ -1,0 +1,16 @@
+@import 'variables';
+
+.calendar {
+  background: white;
+  width: 260px;
+  border-radius: 5px;
+  border: 2px solid $busbud;
+  font-family: $sans-serif;
+  position: absolute;
+  top: 410px;
+  left: 300px;
+}
+
+.hidden {
+  display: none;
+}

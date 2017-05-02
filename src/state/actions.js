@@ -25,7 +25,6 @@ export const getData = (origin, destination, date, params, index) => (dispatch) 
         dispatch(getDataSuccess(res))
       }
     }).catch(err => {
-      // console.error(err);
       dispatch(getDataError(err))
     });
   }

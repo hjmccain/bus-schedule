@@ -6,9 +6,9 @@ import SearchPage from './SearchPage';
 import '../../style/index.css';
 
 class FullPage extends React.Component {
-  componentWillMount() {
-    this.props.getData();
-  }
+  // componentWillMount() {
+  //   this.props.getData();
+  // }
 
   render() {
     return (

@@ -1,5 +1,4 @@
 import React from 'react';
-import background from '../../../public/cropped-background.png';
 
 class LandingPage extends React.Component {
   constructor() {

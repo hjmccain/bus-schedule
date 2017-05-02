@@ -1,16 +1,20 @@
 import React from 'react';
 import SearchNav from '../search/SearchNav';
 import Results from '../results/Results';
+import { connect } from 'react-redux';
+import { getData } from '../../state/actions';
 
-class SearchPage extends React.Component {
-  render() {
-    return (
-      <div className="search-page">
-        <SearchNav />
-        <Results />
-      </div>
-    )
+const SearchPage = (props) => {
+  const dateAndLocation = (object) => {
+    props.getData();
   }
+
+  return (
+    <div className="search-page">
+      <SearchNav dateAndLocation={dateAndLocation} />
+      <Results />
+    </div>
+  )
 }
 
-export default SearchPage;
+export default connect(null, { getData })(SearchPage);
