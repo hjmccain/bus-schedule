@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SingleResult = (props) => {
-  console.log('single result', props)
   return (
     <div className="single-result">
       <div className="result-element price">
@@ -18,6 +17,7 @@ const SingleResult = (props) => {
             <span className="time">{props.depart.time}</span>
             <span>{props.depart.location}</span>
           </p>
+          <i className="fa fa-arrow-down" aria-hidden="true"></i>
         </div>
         <div className="arrive">
           <p>

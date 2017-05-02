@@ -1,3 +1,8 @@
+export const FETCH_RESULTS = 'FETCH_RESULTS';
+export const fetchResults = () => ({
+  type: FETCH_RESULTS
+});
+
 export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
 export const getDataSuccess = (data) => ({
   type: GET_DATA_SUCCESS,

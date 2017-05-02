@@ -6,7 +6,7 @@ import moment from 'moment';
 class SearchNav extends React.Component {
   state = {
     calVisible: false,
-    isoDate: null,
+    isoDate: '2017-07-29',
     destination: null,
     displayDate: '',
   }
@@ -30,7 +30,7 @@ class SearchNav extends React.Component {
   render() {
     return (
       <div className="search-nav">
-        <h2>you’re going to montréal!</h2>
+        <h2>you’re going to <span className="montreal">montréal</span>!</h2>
         <form>
           <SearchBar
             content="New York City"
@@ -38,11 +38,10 @@ class SearchNav extends React.Component {
             toggleVisibility={this.toggleVisibility.bind(this)}
             label="from" />
           <SearchBar
-            content={this.state.displayDate.toString()}
+            content={this.state.displayDate.toString() || "July 29"}
             toggleVisibility={this.toggleVisibility.bind(this)}
             calVisible={this.state.calVisible}
-            label="departing"
-            text="July 29" />
+            label="departing" />
           <div className="search-nav-child">
             <button onClick={this.sendData.bind(this)}>Find my ticket!</button>
           </div>
@@ -51,6 +50,12 @@ class SearchNav extends React.Component {
           getContent={this.getContent.bind(this)}
           toggleVisibility={this.toggleVisibility.bind(this)}
           calVisible={this.state.calVisible} />
+        <div className={this.props.fetchingResults}>
+          <div className="spinner">
+            <div className="double-bounce1"></div>
+            <div className="double-bounce2"></div>
+          </div>
+        </div>
       </div>
     )
   }

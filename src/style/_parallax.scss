@@ -35,7 +35,7 @@ $parallax-ios: true !default;
   ) {
   transform:
     translateZ($distance * $perspective * 1px)
-    scale(abs($distance - 1))
+    scale(1.4)
   ;
   z-index: $distance * 1000;
 }

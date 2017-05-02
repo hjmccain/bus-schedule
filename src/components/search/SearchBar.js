@@ -19,7 +19,6 @@ class SearchBar extends React.Component {
           <p>{this.props.label}</p>
           <input
             ref={input => this.textInput = input}
-            placeholder={this.props.text}
             onFocus={this.handleClick.bind(this)}
             onChange={this.sendInput.bind(this)}
             value={this.props.content}
