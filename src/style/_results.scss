@@ -23,11 +23,11 @@
   border: 1px solid $lightgray;
   display: flex;
   align-items: center;
-  width: 750px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
   font-family: $sans-serif;
+  width: 750px;
 
   .result-element {
     box-sizing: border-box;
@@ -43,6 +43,7 @@
     text-align: center;
     font-size: 2em;
     font-weight: 700;
+    margin-top: -20px;
   }
 
   .actual-price {
@@ -52,8 +53,13 @@
     margin-top: -20px;
   }
 
+  @media only screen and (min-width: 500px) {
+    .itinerary {
+      width: 450px;
+    }
+  }
+
   .itinerary {
-    width: 450px;
     span {
       margin: 10px 20px 10px 0px;
       font-weight: 300;

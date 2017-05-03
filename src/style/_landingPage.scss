@@ -27,8 +27,13 @@
   margin-top: -102px;
 }
 
+@media only screen and (max-width: 905px) {
+  .background-img {
+    @include parallax(-.2);
+  }
+}
+
 .background-img {
-  @include parallax(-.2);
   background-image: url('../../public/cropped-background.png');
   height: 1000px;
   background-attachment: fixed;

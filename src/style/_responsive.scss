@@ -1,0 +1,86 @@
+@media only screen and (max-width: 905px) {
+  body {
+    background-image: url('../../public/cropped-background.png');
+    height: 1000px;
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .background-img {
+    display: none;
+  }
+
+  .search-page {
+    margin: 0px 0px 0px 0px;
+  }
+
+  .search-nav, .results-body {
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .spinner-container {
+    position: static;
+    height: 0px;
+  }
+
+  .spinner {
+    top: -81px;
+  }
+
+  .single-result {
+    width: 90vw;
+  }
+
+  .search-nav-child, .search-nav-button {
+    margin: 0 auto;
+    text-align: center;
+    width: 70vw;
+  }
+
+  .search-nav-child p {
+    margin-top: 20px;
+  }
+
+  .search-nav input {
+    width: 60vw;
+    margin-left: 0px;
+  }
+
+  .search-nav button {
+    margin-top: 20px;
+  }
+
+  .location {
+    display: inline-block;
+  }
+
+  .search-nav h2 {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .branded-header {
+    font-size: 5em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .single-result {
+    box-sizing: border-box;
+    flex-direction: column-reverse;
+    align-content: center;
+    div {
+      width: 95%;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+
+  .search-nav h2 {
+    font-size: 3em;
+  }
+}

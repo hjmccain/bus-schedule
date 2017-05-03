@@ -6,6 +6,7 @@
 @import '../../node_modules/react-day-picker/lib/style';
 @import 'calendar';
 @import 'spinner';
+@import 'responsive';
 
 body {
   margin: 0px;
@@ -15,6 +16,8 @@ body {
   position: relative;
 }
 
-.search-page, .branded-header {
-  margin-left: 50px;
+@media only screen and (min-width: 905px) {
+  .search-page, .branded-header {
+    margin-left: 50px;
+  }
 }

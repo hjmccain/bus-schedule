@@ -15,7 +15,7 @@ const SingleResult = (props) => {
           <p>
             <span>Depart</span>
             <span className="time">{props.depart.time}</span>
-            <span>{props.depart.location}</span>
+            <span className="location">{props.depart.location}</span>
           </p>
           <i className="fa fa-arrow-down" aria-hidden="true"></i>
         </div>
@@ -23,12 +23,12 @@ const SingleResult = (props) => {
           <p>
             <span>Arrive</span>
             <span className="time">{props.arrive.time}</span>
-            <span>{props.arrive.location}</span>
+            <span className="location">{props.arrive.location}</span>
           </p>
         </div>
       </div>
       <div className="result-element more-info">
-        <button>details</button>
+        <button>purchase</button>
       </div>
     </div>
   )
