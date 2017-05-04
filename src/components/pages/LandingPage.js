@@ -24,11 +24,12 @@ class LandingPage extends React.Component {
   render() {
     return (
       <div id="header-container">
-        <p className="lang">
+        <div className="lang-container"><p className="lang">
           <span onClick={() => (this.props.chooseLanguage('en'))}
             className={this.props.lang === 'en' ? 'selectedLang' : ''}>EN</span>/
           <span onClick={() => (this.props.chooseLanguage('fr'))}
             className={this.props.lang === 'fr' ? 'selectedLang' : ''}>FR</span></p>
+        </div>
         <h1 className="branded-header">
           <span className="busbud">busbud</span>
           <span className="x">x</span>

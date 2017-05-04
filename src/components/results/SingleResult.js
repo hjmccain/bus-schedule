@@ -1,4 +1,5 @@
 import React from 'react';
+import convertTime from '../language/convertTime';
 
 const SingleResult = (props) => {
   return (
@@ -16,7 +17,9 @@ const SingleResult = (props) => {
             <span>
               {props.lang === 'en' ? 'Depart' : 'Départ'}
             </span>
-            <span className="time">{props.depart.time}</span>
+            <span className="time">
+              {props.lang === 'en' ? props.depart.time : convertTime(props.depart.time)}
+            </span>
             <span className="location">{props.depart.location}</span>
           </p>
           <i className="fa fa-arrow-down" aria-hidden="true"></i>
@@ -26,7 +29,9 @@ const SingleResult = (props) => {
             <span>
               {props.lang === 'en' ? 'Arrive' : 'Arrivée'}
             </span>
-            <span className="time">{props.arrive.time}</span>
+            <span className="time">
+              {props.lang === 'en' ? props.arrive.time : convertTime(props.arrive.time)}
+            </span>
             <span className="location">{props.arrive.location}</span>
           </p>
         </div>
