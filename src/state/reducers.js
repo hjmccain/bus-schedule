@@ -50,7 +50,8 @@ const state = (state = { lang: 'en' }, action) => {
   case actions.GET_DATA_ERROR:
     return state = Object.assign({}, state, {
       data: null,
-      getDataError: true
+      getDataError: true,
+      fetchingResults: false
     });
   default:
     return state;

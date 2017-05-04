@@ -4,27 +4,38 @@ import Results from '../results/Results';
 import { connect } from 'react-redux';
 import { getData, fetchResults } from '../../state/actions';
 
-const SearchPage = (props) => {
-  const dateAndLocation = (object) => {
-    props.getData(object.isoDate);
-    props.fetchResults();
+class SearchPage extends React.Component {
+  state = { date: '' }
+
+  dateAndLocation(object) {
+    this.setState({ date: object.isoDate })
+    this.props.getData(object.isoDate, 'USD');
+    this.props.fetchResults();
   }
 
-  return (
-    <div className="search-page">
-      <SearchNav
-        lang={props.lang}
-        dateAndLocation={dateAndLocation}
-        fetchingResults={!props.fetchingResults ? 'spinner-container hidden' : 'spinner-container'} />
-      <Results lang={props.lang} results={props.results ? props.results : null} />
-    </div>
-  )
+  render() {
+    return (
+      <div className="search-page">
+        <SearchNav
+          lang={this.props.lang}
+          dateAndLocation={this.dateAndLocation.bind(this)}
+          fetchingResults={!this.props.fetchingResults ? 'spinner-container hidden' : 'spinner-container'} />
+        <Results
+          date={this.state.date}
+          getData={this.props.getData}
+          err={this.props.getDataError}
+          lang={this.props.lang}
+          results={this.props.results ? this.props.results : null} />
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state) => ({
   results: state.data,
   fetchingResults: state.fetchingResults,
-  lang: state.lang
+  lang: state.lang,
+  getDataError: state.getDataError
 });
 
 export default connect(mapStateToProps, { getData, fetchResults })(SearchPage);

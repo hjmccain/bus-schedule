@@ -20,7 +20,7 @@ export const getDataError = err => ({
   type: GET_DATA_ERROR
 });
 
-export const getData = (inputDate) => (dispatch) => {
+export const getData = (inputDate, currency) => (dispatch) => {
 
   const getData = (origin, destination, date, params, index) => {
     return fetch(`/itineraries/${origin}/${destination}/${date}/${params}/${index}`)
@@ -31,7 +31,7 @@ export const getData = (inputDate) => (dispatch) => {
       console.log(res);
       const { complete, departures } = res;
       if (complete === false) {
-        getData('dr5reg', 'f25dvk', inputDate, 'adult=1&currency=USD', departures.indexOf(departures)[-1]);
+        getData('dr5reg', 'f25dvk', inputDate, `adult=1&currency=${currency}`, departures.indexOf(departures)[-1]);
       } else {
         dispatch(getDataSuccess(res))
       }
@@ -40,5 +40,5 @@ export const getData = (inputDate) => (dispatch) => {
     });
   }
 
-  getData('f25dvk', 'dr5reg', inputDate, 'adult=1&currency=USD');
+  getData('f25dvk', 'dr5reg', inputDate, `adult=1&currency=${currency}`);
 }
