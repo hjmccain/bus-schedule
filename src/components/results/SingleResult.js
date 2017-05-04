@@ -14,10 +14,7 @@ const SingleResult = (props) => {
         <div className="depart">
           <p>
             <span>
-              {
-                props.lang === 'en' ?
-                'Depart' : 'Départ'
-              }
+              {props.lang === 'en' ? 'Depart' : 'Départ'}
             </span>
             <span className="time">{props.depart.time}</span>
             <span className="location">{props.depart.location}</span>
@@ -27,10 +24,7 @@ const SingleResult = (props) => {
         <div className="arrive">
           <p>
             <span>
-              {
-                props.lang === 'en' ?
-                'Arrive' : 'Arrivée'
-              }
+              {props.lang === 'en' ? 'Arrive' : 'Arrivée'}
             </span>
             <span className="time">{props.arrive.time}</span>
             <span className="location">{props.arrive.location}</span>
@@ -39,10 +33,7 @@ const SingleResult = (props) => {
       </div>
       <div className="result-element more-info">
         <button>
-          {
-            props.lang === 'en' ?
-            'Purchase' : 'Achetez'
-          }
+          {props.lang === 'en' ? 'Purchase' : 'Achetez'}
         </button>
       </div>
     </div>
