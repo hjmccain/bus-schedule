@@ -39,7 +39,7 @@ const state = (state = { lang: 'en' }, action) => {
         carrier: operator[0].name,
         price: `${dollars}.${cents}`,
         showActualPrice: (cents !== '00'),
-        roundedPrice: `${(parseInt(dollars) + parseInt(rounded)).toString()}`
+        roundedPrice: `${(parseInt(dollars,10) + parseInt(rounded, 10)).toString()}`
       })
     });
     return state = Object.assign({}, state, {

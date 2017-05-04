@@ -35,10 +35,12 @@ class SearchNav extends React.Component {
         </h2>
         <form>
           <SearchBar
+            lang={this.props.lang}
             collectInput={this.collectInput.bind(this)}
             toggleVisibility={this.toggleVisibility.bind(this)}
             label="from" />
           <SearchBar
+            lang={this.props.lang}
             class="search-bar date-bar"
             content={this.state.displayDate.toString() || "July 29"}
             toggleVisibility={this.toggleVisibility.bind(this)}

@@ -7,7 +7,7 @@ const convertTime = (time) => {
     let index = regex.exec(time).index;
     let trimmed = time.slice(0, index);
     let timeAry = trimmed.split(':');
-    if (convert24) { timeAry[0] = (parseInt(timeAry[0]) + 12).toString() }
+    if (convert24) { timeAry[0] = (parseInt(timeAry[0], 10) + 12).toString() }
     convertedTime = timeAry.join('h');
   }
 

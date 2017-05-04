@@ -1,4 +1,5 @@
 import React from 'react';
+import convertDate from '../language/convertDate';
 
 class SearchBar extends React.Component {
   sendInput() {
@@ -15,7 +16,11 @@ class SearchBar extends React.Component {
           <input
             ref={input => this.textInput = input}
             onChange={this.sendInput.bind(this)}
-            value={this.props.content || "New York City"}
+            value={
+              this.props.lang === 'en' ?
+              this.props.content || "New York City" :
+              this.props.content ? convertDate(this.props.content) : "New York City"
+            }
             className={this.props.class || "search-bar"} />
         </div>
       </div>
