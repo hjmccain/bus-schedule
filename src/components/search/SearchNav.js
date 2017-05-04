@@ -8,12 +8,11 @@ class SearchNav extends React.Component {
     calVisible: false,
     isoDate: '2017-07-29',
     destination: null,
-    displayDate: '',
+    displayDate: ''
   }
 
   toggleVisibility(show) { this.setState({ calVisible: show }) }
   collectInput(input) { this.setState({ destination: input }) }
-
 
   getContent(date) {
     this.setState({
@@ -30,20 +29,25 @@ class SearchNav extends React.Component {
   render() {
     return (
       <div className="search-nav">
-        <h2>you’re going to <span className="montreal">montréal</span>!</h2>
+        <h2>
+          {this.props.lang === 'en' ? 'you’re going to' : 'vous allez à'}
+          <span className="montreal">montréal</span>!
+        </h2>
         <form>
           <SearchBar
-            content="New York City"
             collectInput={this.collectInput.bind(this)}
             toggleVisibility={this.toggleVisibility.bind(this)}
             label="from" />
           <SearchBar
+            class="search-bar date-bar"
             content={this.state.displayDate.toString() || "July 29"}
             toggleVisibility={this.toggleVisibility.bind(this)}
             calVisible={this.state.calVisible}
             label="departing" />
           <div className="search-nav-child">
-            <button onClick={this.sendData.bind(this)}>Find my ticket!</button>
+            <button className={this.props.lang} onClick={this.sendData.bind(this)}>
+              {this.props.lang === 'en' ? 'Find my ticket!' : 'Recherchez mon billet!'}
+            </button>
           </div>
         </form>
         <Calendar

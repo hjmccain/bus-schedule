@@ -13,7 +13,12 @@ const SingleResult = (props) => {
         </div>
         <div className="depart">
           <p>
-            <span>Depart</span>
+            <span>
+              {
+                props.lang === 'en' ?
+                'Depart' : 'Départ'
+              }
+            </span>
             <span className="time">{props.depart.time}</span>
             <span className="location">{props.depart.location}</span>
           </p>
@@ -21,14 +26,24 @@ const SingleResult = (props) => {
         </div>
         <div className="arrive">
           <p>
-            <span>Arrive</span>
+            <span>
+              {
+                props.lang === 'en' ?
+                'Arrive' : 'Arrivée'
+              }
+            </span>
             <span className="time">{props.arrive.time}</span>
             <span className="location">{props.arrive.location}</span>
           </p>
         </div>
       </div>
       <div className="result-element more-info">
-        <button>purchase</button>
+        <button>
+          {
+            props.lang === 'en' ?
+            'Purchase' : 'Achetez'
+          }
+        </button>
       </div>
     </div>
   )

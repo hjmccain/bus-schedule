@@ -5,17 +5,13 @@ import LandingPage from './LandingPage';
 import SearchPage from './SearchPage';
 import '../../style/index.css';
 
-class FullPage extends React.Component {
-  render() {
-    return (
-      <div>
-        <LandingPage />
-        <SearchPage />
-      </div>
-    )
-  }
+const FullPage = () => {
+  return (
+    <div>
+      <LandingPage />
+      <SearchPage />
+    </div>
+  )
 }
 
-const mapStateToProps = state => ({ data: state.data });
-
-export default connect(mapStateToProps, { getData })(FullPage);
+export default FullPage;

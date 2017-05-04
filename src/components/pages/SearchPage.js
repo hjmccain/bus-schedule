@@ -13,16 +13,18 @@ const SearchPage = (props) => {
   return (
     <div className="search-page">
       <SearchNav
+        lang={props.lang}
         dateAndLocation={dateAndLocation}
         fetchingResults={!props.fetchingResults ? 'spinner-container hidden' : 'spinner-container'} />
-      <Results results={props.results ? props.results : null} />
+      <Results lang={props.lang} results={props.results ? props.results : null} />
     </div>
   )
 }
 
 const mapStateToProps = (state) => ({
   results: state.data,
-  fetchingResults: state.fetchingResults
+  fetchingResults: state.fetchingResults,
+  lang: state.lang
 });
 
 export default connect(mapStateToProps, { getData, fetchResults })(SearchPage);

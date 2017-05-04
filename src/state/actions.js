@@ -1,3 +1,9 @@
+export const CHOOSE_LANGUAGE = 'CHOOSE_LANGUAGE';
+export const chooseLanguage = (lang) => ({
+  type: CHOOSE_LANGUAGE,
+  lang
+});
+
 export const FETCH_RESULTS = 'FETCH_RESULTS';
 export const fetchResults = () => ({
   type: FETCH_RESULTS

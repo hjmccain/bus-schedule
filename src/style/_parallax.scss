@@ -1,11 +1,11 @@
-$parallax-perspective: 1 !default;
-$parallax-element: "body" !default;
-$parallax-ios: true !default;
+$parallax-perspective : 1 !default;
+$parallax-element     : "body" !default;
+$parallax-ios         : true !default;
 
 @mixin parallax-init(
-  $perspective : $parallax-perspective,
-  $element: $parallax-element,
-  $parallax-ios: $parallax-ios
+  $perspective  : $parallax-perspective,
+  $element      : $parallax-element,
+  $parallax-ios : $parallax-ios
   ) {
   @if $element == "body" {
     html, body {
@@ -20,9 +20,11 @@ $parallax-ios: true !default;
     overflow: auto;
     perspective: $perspective * 1px;
     transform-style: preserve-3d;
+    // Allows for smooth scrolling but disables parallax effects.
     @if $parallax-ios == false {
       -webkit-overflow-scrolling: touch;
     }
+    // Preserve 3D
     &, * {
       transform-style: preserve-3d;
     }
@@ -30,12 +32,12 @@ $parallax-ios: true !default;
 }
 
 @mixin parallax(
-  $distance: 0,
-  $perspective: $parallax-perspective
+  $distance    : 0,
+  $perspective : $parallax-perspective
   ) {
   transform:
     translateZ($distance * $perspective * 1px)
-    scale(1.4)
+    scale(abs($distance - 1))
   ;
   z-index: $distance * 1000;
 }

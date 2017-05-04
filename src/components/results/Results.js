@@ -5,13 +5,20 @@ import uuidV4 from 'uuid/v4';
 const Results = (props) => {
   if (props.results) {
     if (props.results === 'No results') {
-      return <div className="no-results">Whoops! Sorry. We couldn't find any results for those dates.</div>
+      return <div className="no-results">
+        {
+          props.lang === 'en' ?
+          'Whoops! Sorry. We couldn\'t find any results for those dates.' :
+          'Oups! Pardon, nous n\'avons pas trouvé aucun resultat pour ces dates.'
+        }
+      </div>
     }
     return (
       <div className="results-body">
         {props.results.map(object => {
           return <SingleResult
             key={uuidV4()}
+            lang={props.lang}
             className="result-line"
             price={object.showActualPrice ? `$${object.price}` : null}
             roundedPrice={`$${object.roundedPrice}`}

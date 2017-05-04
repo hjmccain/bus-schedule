@@ -1,11 +1,15 @@
 import * as actions from './actions';
 import moment from 'moment';
 
-const state = (state = {}, action) => {
+const state = (state = { lang: 'en' }, action) => {
   switch (action.type) {
   case actions.FETCH_RESULTS:
     return state = Object.assign({}, state, {
       fetchingResults: true
+    });
+  case actions.CHOOSE_LANGUAGE:
+    return state = Object.assign({}, state, {
+      lang: action.lang
     });
   case actions.GET_DATA_SUCCESS:
     const { departures, locations, operators } = action.data;

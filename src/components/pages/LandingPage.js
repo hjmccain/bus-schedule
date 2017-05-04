@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { chooseLanguage } from '../../state/actions';
 
 class LandingPage extends React.Component {
   constructor() {
@@ -16,13 +18,17 @@ class LandingPage extends React.Component {
     const elem = document.getElementById("header-container");
     const position = elem.getBoundingClientRect();
     image = position.top <= -109.25 ? 'background-img fixed' : image = 'background-img';
-    // console.log(position);
     this.setState({ imageClass: image })
   }
 
   render() {
     return (
       <div id="header-container">
+        <p className="lang">
+          <span onClick={() => (this.props.chooseLanguage('en'))}
+            className={this.props.lang === 'en' ? 'selectedLang' : ''}>EN</span>/
+          <span onClick={() => (this.props.chooseLanguage('fr'))}
+            className={this.props.lang === 'fr' ? 'selectedLang' : ''}>FR</span></p>
         <h1 className="branded-header">
           <span className="busbud">busbud</span>
           <span className="x">x</span>
@@ -37,4 +43,8 @@ class LandingPage extends React.Component {
   }
 }
 
-export default LandingPage;
+const mapStateToProps = (state) => ({
+  lang: state.lang
+});
+
+export default connect(mapStateToProps, { chooseLanguage })(LandingPage);

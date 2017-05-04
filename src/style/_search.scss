@@ -8,7 +8,8 @@
 
 .montreal {
   color: white;
-  margin-right: 2px;
+  margin-right: 9px;
+  margin-left: 9px;
 }
 
 .search-nav {
@@ -21,6 +22,7 @@
     color: $busbud;
     font-family: $headline;
     font-size: 3.5em;
+    text-align: center;
   }
 
   @media only screen and (min-width: 905px) {
@@ -29,9 +31,13 @@
       text-align: right;
       width: 725px;
     }
-    
-    button {
+
+    .en {
       margin-right: 221px;
+    }
+
+    .fr {
+      margin-right: 114px;
     }
   }
 

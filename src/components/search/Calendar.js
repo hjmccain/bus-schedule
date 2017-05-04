@@ -2,10 +2,7 @@ import React from 'react';
 import DayPicker from "react-day-picker";
 
 class Calendar extends React.Component {
-  state = {
-    selectedDay: undefined,
-    disabledDates: []
-  };
+  state = { disabledDates: [] };
 
   componentWillMount() {
     let datesArray = [];
@@ -21,18 +18,13 @@ class Calendar extends React.Component {
   }
 
   handleClick(e) {
-    console.log(e.target.classList);
-    if (e.target.classList.contains('search-bar') ||
-        e.target.classList.contains('DayPicker-Caption') ||
-        e.target.classList.contains('DayPicker-NavButton')) {
-      this.props.toggleVisibility(true);
-    } else { this.props.toggleVisibility(false) }
+    e.target.classList.contains('date-bar') ||
+    e.target.classList.contains('DayPicker-Caption') ||
+    e.target.classList.contains('DayPicker-NavButton') ?
+    this.props.toggleVisibility(true) : this.props.toggleVisibility(false)
   }
 
-  handleDayClick = (day, { selected }) => {
-    this.setState({
-      selectedDay: selected ? undefined : day,
-    });
+  handleDayClick = (day) => {
     this.props.toggleVisibility(false);
     this.props.getContent(day);
   };
