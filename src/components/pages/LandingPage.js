@@ -13,6 +13,10 @@ class LandingPage extends React.Component {
     window.addEventListener('scroll', this.findPosition);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.findPosition.bind(this));
+  }
+
   findPosition() {
     let image;
     const elem = document.getElementById("header-container");
