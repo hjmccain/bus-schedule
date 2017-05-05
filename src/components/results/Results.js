@@ -1,32 +1,45 @@
 import React from 'react';
 import SingleResult from './SingleResult';
 import SortResults from './SortResults';
+import ThanksModal from './ThanksModal';
 import uuidV4 from 'uuid/v4';
 
 class Results extends React.Component {
   constructor() {
     super();
-    this.state = { res: null }
-    this.createResult = this.createResult.bind(this);
+    this.state = { showModal: false }
   }
 
-  setRes(ary) { this.setState({ res: ary })}
+  showModal(boolean) {
+    this.setState({ showModal: boolean })
+  }
 
-  createResult(object) {
-    return <SingleResult
-      key={uuidV4()}
-      lang={this.props.lang}
-      className="result-line"
-      price={object.showActualPrice ? `$${object.price}` : null}
-      roundedPrice={`$${object.roundedPrice}`}
-      carrier={object.carrier}
-      depart={{city: 'New York City', time: object.departureTime, location: object.departureName}}
-      arrive={{city: 'Montréal', time: object.arrivalTime, location: object.arrivalName}}
-      />
+  componentDidMount() {
+    window.addEventListener('scroll', this.findPosition.bind(this));
+    document.addEventListener('click', this.handleClick.bind(this), false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.findPosition.bind(this));
+    document.removeEventListener('click', this.handleClick.bind(this), false);
+  }
+
+  handleClick(e) {
+    e.target.classList.contains('show-modal') ||
+    e.target.classList.contains('purchase') ?
+    this.setState({ showModal: true }) : this.setState({ showModal: false })
+  }
+
+  findPosition() {
+    if (document.getElementById("thanks")) {
+      const elem = document.getElementById("thanks");
+      const position = elem.getBoundingClientRect();
+      const show = (position.top >= 459.6875) ? false : this.state.showModal;
+      this.setState({ showModal: show });
+    }
   }
 
   render() {
-    console.log(this.state);
     if (this.props.results) {
       if (this.props.results === 'No results') {
         return <div className="no-results">
@@ -39,16 +52,23 @@ class Results extends React.Component {
       }
       return (
         <div>
-          <SortResults
-            results={this.state.res || this.props.results}
-            setRes={this.setRes.bind(this)}
-            date={this.props.date}
-            getData={this.props.getData} />
-          <div className="results-body">{
-            this.state.res ?
-              this.state.res.map(object => this.createResult(object)) :
-              this.props.results.map(object => this.createResult(object))
-            }</div>
+          <SortResults date={this.props.date} getData={this.props.getData} />
+          <ThanksModal className={this.state.showModal}/>
+          <div className="results-body" id="thanks">
+            {this.props.results.map(object => {
+              return <SingleResult
+                key={uuidV4()}
+                showModal={this.showModal.bind(this)}
+                lang={this.props.lang}
+                className="result-line"
+                price={object.showActualPrice ? `$${object.price}` : null}
+                roundedPrice={`$${object.roundedPrice}`}
+                carrier={object.carrier}
+                depart={{city: 'New York City', time: object.departureTime, location: object.departureName}}
+                arrive={{city: 'Montréal', time: object.arrivalTime, location: object.arrivalName}}
+                />
+            })}
+          </div>
         </div>
       )
     } else if (this.props.getDataError) {
@@ -65,6 +85,7 @@ class Results extends React.Component {
       return <div></div>
     }
   }
+
 }
 
 export default Results;

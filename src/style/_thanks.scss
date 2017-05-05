@@ -1,0 +1,25 @@
+@import 'variables';
+
+.show-modal {
+  z-index: 2000;
+  position: fixed;
+  top: 30vh;
+  box-sizing: border-box;
+  background: $lightblue;
+  border: 2px solid $busbud;
+  border-radius: 5px;
+  padding: 20px;
+  color: $busbud;
+  font-family: $sans-serif;
+  line-height: 1.5;
+  .thanks {
+    font-weight: 700;
+  }
+}
+
+@media only screen and (min-width: 651px) {
+  .show-modal {
+    width: 500px;
+    margin-left: 70px;
+  }
+}

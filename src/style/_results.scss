@@ -1,3 +1,19 @@
+.currency {
+  padding-right: 20px;
+  padding-top: 20px;
+  font-family: $sans-serif;
+  font-weight: 300;
+  color: $busbud;
+  cursor: pointer;
+  span {
+    margin-left: 4px;
+  }
+}
+
+.selected-currency {
+  font-weight: 700;
+}
+
 .results-body {
   box-sizing: border-box;
   width: 790px;

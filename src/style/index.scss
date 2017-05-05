@@ -7,6 +7,7 @@
 @import 'calendar';
 @import 'spinner';
 @import 'responsive';
+@import 'thanks';
 
 body {
   margin: 0px;
@@ -26,4 +27,8 @@ button {
   &:hover {
     filter: brightness(95%);
   }
+}
+
+.hidden, .hidden-thanks {
+  display: none;
 }

@@ -21,7 +21,7 @@ export const getDataError = err => ({
 });
 
 export const getData = (inputDate, currency) => (dispatch) => {
-
+  dispatch(fetchResults());
   const getData = (origin, destination, date, params, index) => {
     return fetch(`/itineraries/${origin}/${destination}/${date}/${params}/${index}`)
     .then(res => {
