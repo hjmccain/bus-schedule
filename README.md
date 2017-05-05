@@ -3,7 +3,7 @@
 ## Setup
 
 In your terminal...
-* Clone app: `$ git clone https://github.com/hjmccain/article-queue.git < YOUR DIR NAME >`
+* Clone app: `$ git clone https://github.com/hjmccain/bus-schedule.git < YOUR DIR NAME >`
 * Install dependencies: `$ npm install`
 
 In separate terminal tabs...
