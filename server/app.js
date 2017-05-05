@@ -5,9 +5,9 @@ const app = express();
 
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('../build'));
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static('../build'));
+// }
 
 app.get('/itineraries/:origin/:destination/:date/:params/:index', (req, res) => {
   const { polling, origin, destination, date, params } = req.params;
