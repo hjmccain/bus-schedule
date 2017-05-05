@@ -10,9 +10,7 @@ class Results extends React.Component {
     this.state = { showModal: false }
   }
 
-  showModal(boolean) {
-    this.setState({ showModal: boolean })
-  }
+  showModal(boolean) { this.setState({ showModal: boolean }) }
 
   componentDidMount() {
     window.addEventListener('scroll', this.findPosition.bind(this));
@@ -57,7 +55,6 @@ class Results extends React.Component {
       return <div></div>
     }
   }
-
 }
 
 export default Results;

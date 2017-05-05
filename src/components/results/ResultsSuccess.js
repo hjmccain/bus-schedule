@@ -5,7 +5,6 @@ import SingleResult from './SingleResult';
 import uuidV4 from 'uuid/v4';
 
 const ResultsSuccess = (props) => {
-
   return (
     <div>
       <SortResults date={props.date} getData={props.getData} />
@@ -27,7 +26,6 @@ const ResultsSuccess = (props) => {
       </div>
     </div>
   )
-
 }
 
 export default ResultsSuccess;

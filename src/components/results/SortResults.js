@@ -1,5 +1,4 @@
 import React from 'react';
-import sorting from './sorting';
 
 class SortResults extends React.Component {
   state = { usd: 'selected-currency', cad: '' }

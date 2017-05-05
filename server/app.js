@@ -3,10 +3,6 @@ const path = require('path');
 const fetch = require('node-fetch');
 const app = express();
 
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static('../build'));
-// }
-
 app.get('/itineraries/:origin/:destination/:date/:params/:index', (req, res) => {
   const { polling, origin, destination, date, params } = req.params;
   let index = req.params.index ? `&index=${req.params.index}` : ''
@@ -34,9 +30,5 @@ app.get('/itineraries/:origin/:destination/:date/:params/:index', (req, res) => 
 });
 
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
-// });
 
 module.exports = app;
