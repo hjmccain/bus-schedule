@@ -10,7 +10,7 @@ class SearchPage extends React.Component {
   dateAndLocation(object) {
     this.setState({ date: object.isoDate })
     this.props.getData(object.isoDate, 'USD');
-    this.props.fetchResults();
+    // this.props.fetchResults();
   }
 
   render() {

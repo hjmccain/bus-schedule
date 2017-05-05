@@ -1,20 +1,29 @@
 import React from 'react';
 
-const SortResults = (props) => {
-  return (
-    <div>
-      <p>
-        <span>Currency:
-          <span onClick={() => {props.getData(props.date, 'USD')}}>USD</span> |
-          <span onClick={() => {props.getData(props.date, 'CAD')}}>CAD</span>
-        </span>
-        <span>Sort price:
-          <span>Low</span> |
-          <span>High</span>
-        </span>
-      </p>
-    </div>
-  )
+class SortResults extends React.Component {
+  state = { usd: 'selected-currency', cad: '' }
+
+  setCurrency(currency) {
+    this.props.getData(this.props.date, currency);
+    currency === 'USD' ?
+    this.setState({ usd: 'selected-currency', cad: '' }) :
+    this.setState({ usd: '', cad: 'selected-currency' })
+  }
+
+  render() {
+    return (
+      <div>
+        <p className="currency">
+          <span
+            className={this.state.usd}
+            onClick={() => {this.setCurrency('USD')}}>USD</span> |
+          <span
+            className={this.state.cad}
+            onClick={() => {this.setCurrency('CAD')}}>CAD</span>
+        </p>
+      </div>
+    )
+  }
 }
 
 export default SortResults;
