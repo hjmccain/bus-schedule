@@ -3,8 +3,6 @@ const path = require('path');
 const fetch = require('node-fetch');
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, '..', 'build')));
-
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(express.static('../build'));
 // }
@@ -35,9 +33,10 @@ app.get('/itineraries/:origin/:destination/:date/:params/:index', (req, res) => 
   })
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
-});
+app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+// });
 
 module.exports = app;

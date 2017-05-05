@@ -61,9 +61,10 @@
   "scripts": {
     "build-css": "node-sass src/ -o src/",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
-    "start": "npm run watch-css & node scripts/start.js",
+    "dev": "npm run watch-css & node scripts/start.js",
     "build": "npm run build-css && node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "start": "node server/index.js"
   },
   "babel": {
     "presets": [
