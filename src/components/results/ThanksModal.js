@@ -2,7 +2,7 @@ import React from 'react';
 
 const ThanksModal = (props) => {
   return (
-    <div className={'show-modal' }>
+    <div className={!props.className ? 'hidden-thanks' : 'show-modal'}>
       <span className="thanks">Thanks / Mérci, Busbud Team!</span>
       <br /><br />
       Thanks for the opportunity to tackle this project!
@@ -22,4 +22,4 @@ const ThanksModal = (props) => {
 
 export default ThanksModal;
 
-// !props.className ? 'hidden' :
+//

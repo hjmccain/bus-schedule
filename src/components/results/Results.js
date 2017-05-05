@@ -14,6 +14,31 @@ class Results extends React.Component {
     this.setState({ showModal: boolean })
   }
 
+  componentDidMount() {
+    window.addEventListener('scroll', this.findPosition.bind(this));
+    document.addEventListener('click', this.handleClick.bind(this), false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.findPosition.bind(this));
+    document.removeEventListener('click', this.handleClick.bind(this), false);
+  }
+
+  handleClick(e) {
+    e.target.classList.contains('show-modal') ||
+    e.target.classList.contains('purchase') ?
+    this.setState({ showModal: true }) : this.setState({ showModal: false })
+  }
+
+  findPosition() {
+    if (document.getElementById("thanks")) {
+      const elem = document.getElementById("thanks");
+      const position = elem.getBoundingClientRect();
+      const show = (position.top >= 459.6875) ? false : this.state.showModal;
+      this.setState({ showModal: show });
+    }
+  }
+
   render() {
     if (this.props.results) {
       if (this.props.results === 'No results') {
@@ -29,7 +54,7 @@ class Results extends React.Component {
         <div>
           <SortResults date={this.props.date} getData={this.props.getData} />
           <ThanksModal className={this.state.showModal}/>
-          <div className="results-body">
+          <div className="results-body" id="thanks">
             {this.props.results.map(object => {
               return <SingleResult
                 key={uuidV4()}

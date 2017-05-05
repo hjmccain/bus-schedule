@@ -37,7 +37,7 @@ const SingleResult = (props) => {
         </div>
       </div>
       <div className="result-element more-info">
-        <button onClick={() => {props.showModal(true)}}>
+        <button className="purchase" onClick={() => {props.showModal(true)}}>
           {props.lang === 'en' ? 'Purchase' : 'Achetez'}
         </button>
       </div>
