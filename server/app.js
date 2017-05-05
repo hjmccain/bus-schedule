@@ -5,6 +5,10 @@ const app = express();
 
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+});
+
 app.get('/itineraries/:origin/:destination/:date/:params/:index', (req, res) => {
   const { polling, origin, destination, date, params } = req.params;
   let index = req.params.index ? `&index=${req.params.index}` : ''
