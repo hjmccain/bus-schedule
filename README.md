@@ -1,4 +1,4 @@
-# Hannah's Mic App
+# Busbud App
 
 ## Setup
 
