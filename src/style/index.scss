@@ -18,8 +18,11 @@ body {
 }
 
 @media only screen and (min-width: 905px) {
-  .search-page, .branded-header {
+  .branded-header {
     margin-left: 50px;
+  }
+  .search-page {
+    padding-left: 50px;
   }
 }
 
